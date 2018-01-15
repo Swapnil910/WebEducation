@@ -1,0 +1,125 @@
+USE[projectdb]  
+GO  
+/****** Object:  Table [dbo].[Category]    Script Date: 14-01-2017 22:01:47 ******/  
+SET ANSI_NULLS ON  
+GO  
+SET QUOTED_IDENTIFIER ON  
+GO  
+CREATE TABLE[dbo].[Category](  
+    [CategoryID][int] IDENTITY(1, 1) NOT NULL,[CategoryName][nvarchar](1000) NULL, [url][nvarchar](550) NULL, [FreeText1][nvarchar](1000) NULL,
+	[FreeText2][nvarchar](1000) NULL,[FreeText3][nvarchar](1000) NULL,[Status][varchar](10) NOT NULL,[TMDate][Date] NOT NULL,CONSTRAINT[PK_Category] PRIMARY KEY CLUSTERED(  
+        [CategoryID] ASC) WITH(PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON[PRIMARY])  
+GO
+
+
+
+USE[projectdb]  
+GO  
+/****** Object:  Table [dbo].[SubCategory]    Script Date: 14-01-2017 22:01:47 ******/  
+SET ANSI_NULLS ON  
+GO  
+SET QUOTED_IDENTIFIER ON  
+GO  
+CREATE TABLE[dbo].[SubCategory](  
+    [SubCategoryID][int] IDENTITY(1, 1) NOT NULL,[CategoryID] [int] NULL, [SubCategoryName][nvarchar](1000) NULL, [url][nvarchar](550) NULL, [FreeText1][nvarchar](1000) NULL,
+	[FreeText2][nvarchar](1000) NULL,[FreeText3][nvarchar](1000) NULL,[Status][varchar](10) NOT NULL,[TMDate][Date] NOT NULL,CONSTRAINT[PK_SubCategory] PRIMARY KEY CLUSTERED(  
+        [SubCategoryID] ASC) WITH(PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON[PRIMARY]) 
+GO
+
+
+
+
+
+USE[projectdb]  
+GO  
+/****** Object:  Table [dbo].[Courses]    Script Date: 14-01-2017 22:01:47 ******/  
+SET ANSI_NULLS ON  
+GO  
+SET QUOTED_IDENTIFIER ON  
+GO  
+CREATE TABLE[dbo].[Courses](  
+    [CourseID][int] IDENTITY(1, 1) NOT NULL,[SubCategoryID] [int] NULL, [CourseName][nvarchar](1000) NULL, [Price][money] NULL, [url][nvarchar](550) NULL, [Description][text] NULL,[FreeText1][nvarchar](1000) NULL,
+	[FreeText2][nvarchar](1000) NULL,[FreeText3][nvarchar](1000) NULL,[Status][varchar](10) NOT NULL,[TMDate][Date] NOT NULL,CONSTRAINT[PK_Course] PRIMARY KEY CLUSTERED(  
+        [CourseID] ASC) WITH(PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON[PRIMARY]) ON[PRIMARY] TEXTIMAGE_ON[PRIMARY]  
+GO
+
+
+
+
+USE[projectdb]  
+GO  
+/****** Object:  Table [dbo].[CourseDetails]    Script Date: 14-01-2017 22:01:47 ******/  
+SET ANSI_NULLS ON  
+GO  
+SET QUOTED_IDENTIFIER ON  
+GO  
+CREATE TABLE[dbo].[CourseDetails](  
+    [CourseDetID][int] IDENTITY(1, 1) NOT NULL, [CourseID][int], [Price][money] NULL, [CreatedBy][nvarchar](550) NULL, [Description][text] NULL,[LastUpdate][nvarchar](100),[FreeText1][nvarchar](1000) ,
+	[FreeText2][nvarchar](1000) NULL,[FreeText3][nvarchar](1000) NULL,[Status][varchar](10) NOT NULL,[TMDate][Date] NOT NULL ,CONSTRAINT[PK_CourseDet] PRIMARY KEY CLUSTERED(  
+        [CourseDetID] ASC) WITH(PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON[PRIMARY]) ON[PRIMARY] TEXTIMAGE_ON[PRIMARY]  
+GO 
+
+
+
+
+USE[projectdb]  
+GO  
+/****** Object:  Table [dbo].[CourseCurriculum]    Script Date: 14-01-2017 22:01:47 ******/  
+SET ANSI_NULLS ON  
+GO  
+SET QUOTED_IDENTIFIER ON  
+GO  
+CREATE TABLE[dbo].[CourseCurriculum](  
+    [CourseCurrID][int] IDENTITY(1, 1) NOT NULL, [CourseID][int] NULL,  [ChapterName][nvarchar](550) NULL,[LastUpdate][nvarchar](100) NULL,[FreeText1][nvarchar](1000) NULL,
+	[FreeText2][nvarchar](1000) NULL ,[FreeText3][nvarchar](1000) NULL,[Status][varchar](10) NOT NULL,[TMDate][Date] NOT NULL ,CONSTRAINT[PK_CourseCurr] PRIMARY KEY CLUSTERED(  
+        [CourseCurrID] ASC) WITH(PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON[PRIMARY])   
+GO 
+
+
+
+
+
+USE[projectdb]  
+GO  
+/****** Object:  Table [dbo].[CourseCurriculumDet]    Script Date: 14-01-2017 22:01:47 ******/  
+SET ANSI_NULLS ON  
+GO  
+SET QUOTED_IDENTIFIER ON  
+GO  
+CREATE TABLE[dbo].[CourseCurriculumDet](  
+    [CourseCurrDetID][int] IDENTITY(1, 1) NOT NULL, [CourseID][int] NULL, [CourseCurrID] [int] null, [TopicName][nvarchar](550) NULL,[Description][text] NULL,[FreeText1][nvarchar](1000) NULL,
+	[FreeText2][nvarchar](1000) NULL ,[FreeText3][nvarchar](1000) NULL,[Status][varchar](10) NOT NULL,[TMDate][Date] NOT NULL ,CONSTRAINT[PK_CourseCurrDet] PRIMARY KEY CLUSTERED(  
+        [CourseCurrDetID] ASC) WITH(PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON[PRIMARY]) ON[PRIMARY] TEXTIMAGE_ON[PRIMARY]  
+GO 
+
+
+
+USE[projectdb]  
+GO  
+/****** Object:  Table [dbo].[Menu]    Script Date: 14-01-2017 22:01:47 ******/  
+SET ANSI_NULLS ON  
+GO  
+SET QUOTED_IDENTIFIER ON  
+GO  
+CREATE TABLE[dbo].[Menu](  
+    [MenuID][int] IDENTITY(1, 1) NOT NULL, [MenuName][nvarchar](550) NULL,[MenuLogo][text] NULL,[url][nvarchar](550) NULL,[FreeText1][nvarchar](1000) NULL,
+	[FreeText2][nvarchar](1000) NULL ,[FreeText3][nvarchar](1000) NULL,[Status][varchar](10) NOT NULL,[TMDate][Date] NOT NULL ,CONSTRAINT[PK_Menu] PRIMARY KEY CLUSTERED(  
+        [MenuID] ASC) WITH(PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON[PRIMARY]) ON[PRIMARY] TEXTIMAGE_ON[PRIMARY]  
+GO 
+ 
+
+
+
+USE[projectdb]  
+GO  
+/****** Object:  Table [dbo].[SubMenu]    Script Date: 14-01-2017 22:01:47 ******/  
+SET ANSI_NULLS ON  
+GO  
+SET QUOTED_IDENTIFIER ON  
+GO  
+CREATE TABLE[dbo].[SubMenu](  
+    [SubMenuID][int] IDENTITY(1, 1) NOT NULL,[MenuID][int] NULL ,[SubMenuName][nvarchar](550) NULL,[MenuLogo][text] NULL,[url][nvarchar](550) NULL,[FreeText1][nvarchar](1000) NULL,
+	[FreeText2][nvarchar](1000) NULL ,[FreeText3][nvarchar](1000) NULL,[Status][varchar](10) NOT NULL,[TMDate][Date] NOT NULL ,CONSTRAINT[PK_SubMenu] PRIMARY KEY CLUSTERED(  
+        [SubMenuID] ASC) WITH(PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON[PRIMARY]) ON[PRIMARY] TEXTIMAGE_ON[PRIMARY]  
+GO 
+ 

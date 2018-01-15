@@ -1,0 +1,421 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="projectdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="1000" />
+          <Property Name="url" Type="nvarchar" MaxLength="550" />
+          <Property Name="FreeText1" Type="nvarchar" MaxLength="1000" />
+          <Property Name="FreeText2" Type="nvarchar" MaxLength="1000" />
+          <Property Name="FreeText3" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Status" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TMDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CourseCurriculum">
+          <Key>
+            <PropertyRef Name="CourseCurrID" />
+          </Key>
+          <Property Name="CourseCurrID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseID" Type="int" />
+          <Property Name="ChapterName" Type="nvarchar" MaxLength="550" />
+          <Property Name="LastUpdate" Type="nvarchar" MaxLength="100" />
+          <Property Name="FreeText1" Type="nvarchar" MaxLength="1000" />
+          <Property Name="FreeText2" Type="nvarchar" MaxLength="1000" />
+          <Property Name="FreeText3" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Status" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TMDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CourseCurriculumDet">
+          <Key>
+            <PropertyRef Name="CourseCurrDetID" />
+          </Key>
+          <Property Name="CourseCurrDetID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseID" Type="int" />
+          <Property Name="CourseCurrID" Type="int" />
+          <Property Name="TopicName" Type="nvarchar" MaxLength="550" />
+          <Property Name="Description" Type="text" />
+          <Property Name="FreeText1" Type="nvarchar" MaxLength="1000" />
+          <Property Name="FreeText2" Type="nvarchar" MaxLength="1000" />
+          <Property Name="FreeText3" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Status" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TMDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CourseDetails">
+          <Key>
+            <PropertyRef Name="CourseDetID" />
+          </Key>
+          <Property Name="CourseDetID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseID" Type="int" />
+          <Property Name="Price" Type="money" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="550" />
+          <Property Name="Description" Type="text" />
+          <Property Name="LastUpdate" Type="nvarchar" MaxLength="100" />
+          <Property Name="FreeText1" Type="nvarchar" MaxLength="1000" />
+          <Property Name="FreeText2" Type="nvarchar" MaxLength="1000" />
+          <Property Name="FreeText3" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Status" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TMDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Courses">
+          <Key>
+            <PropertyRef Name="CourseID" />
+          </Key>
+          <Property Name="CourseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SubCategoryID" Type="int" />
+          <Property Name="CourseName" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Price" Type="money" />
+          <Property Name="url" Type="nvarchar" MaxLength="550" />
+          <Property Name="Description" Type="text" />
+          <Property Name="FreeText1" Type="nvarchar" MaxLength="1000" />
+          <Property Name="FreeText2" Type="nvarchar" MaxLength="1000" />
+          <Property Name="FreeText3" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Status" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TMDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Name="MenuID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MenuName" Type="nvarchar" MaxLength="550" />
+          <Property Name="MenuLogo" Type="text" />
+          <Property Name="url" Type="nvarchar" MaxLength="550" />
+          <Property Name="FreeText1" Type="nvarchar" MaxLength="1000" />
+          <Property Name="FreeText2" Type="nvarchar" MaxLength="1000" />
+          <Property Name="FreeText3" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Status" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TMDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SubCategory">
+          <Key>
+            <PropertyRef Name="SubCategoryID" />
+          </Key>
+          <Property Name="SubCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryID" Type="int" />
+          <Property Name="SubCategoryName" Type="nvarchar" MaxLength="1000" />
+          <Property Name="url" Type="nvarchar" MaxLength="550" />
+          <Property Name="FreeText1" Type="nvarchar" MaxLength="1000" />
+          <Property Name="FreeText2" Type="nvarchar" MaxLength="1000" />
+          <Property Name="FreeText3" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Status" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TMDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SubMenu">
+          <Key>
+            <PropertyRef Name="SubMenuID" />
+          </Key>
+          <Property Name="SubMenuID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MenuID" Type="int" />
+          <Property Name="SubMenuName" Type="nvarchar" MaxLength="550" />
+          <Property Name="MenuLogo" Type="text" />
+          <Property Name="url" Type="nvarchar" MaxLength="550" />
+          <Property Name="FreeText1" Type="nvarchar" MaxLength="1000" />
+          <Property Name="FreeText2" Type="nvarchar" MaxLength="1000" />
+          <Property Name="FreeText3" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Status" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TMDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="projectdbModelStoreContainer">
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CourseCurriculum" EntityType="Self.CourseCurriculum" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CourseCurriculumDet" EntityType="Self.CourseCurriculumDet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CourseDetails" EntityType="Self.CourseDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Courses" EntityType="Self.Courses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubCategory" EntityType="Self.SubCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubMenu" EntityType="Self.SubMenu" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="projectdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="url" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="FreeText1" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="FreeText2" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="FreeText3" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TMDate" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="CourseCurriculum">
+          <Key>
+            <PropertyRef Name="CourseCurrID" />
+          </Key>
+          <Property Name="CourseCurrID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourseID" Type="Int32" />
+          <Property Name="ChapterName" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FreeText1" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="FreeText2" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="FreeText3" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TMDate" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="CourseCurriculumDet">
+          <Key>
+            <PropertyRef Name="CourseCurrDetID" />
+          </Key>
+          <Property Name="CourseCurrDetID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourseID" Type="Int32" />
+          <Property Name="CourseCurrID" Type="Int32" />
+          <Property Name="TopicName" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FreeText1" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="FreeText2" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="FreeText3" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TMDate" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="CourseDetail">
+          <Key>
+            <PropertyRef Name="CourseDetID" />
+          </Key>
+          <Property Name="CourseDetID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourseID" Type="Int32" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CreatedBy" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="LastUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FreeText1" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="FreeText2" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="FreeText3" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TMDate" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="Cours">
+          <Key>
+            <PropertyRef Name="CourseID" />
+          </Key>
+          <Property Name="CourseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SubCategoryID" Type="Int32" />
+          <Property Name="CourseName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="url" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FreeText1" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="FreeText2" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="FreeText3" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TMDate" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Name="MenuID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MenuName" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="MenuLogo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="url" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="FreeText1" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="FreeText2" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="FreeText3" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TMDate" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="SubCategory">
+          <Key>
+            <PropertyRef Name="SubCategoryID" />
+          </Key>
+          <Property Name="SubCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryID" Type="Int32" />
+          <Property Name="SubCategoryName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="url" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="FreeText1" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="FreeText2" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="FreeText3" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TMDate" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="SubMenu">
+          <Key>
+            <PropertyRef Name="SubMenuID" />
+          </Key>
+          <Property Name="SubMenuID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MenuID" Type="Int32" />
+          <Property Name="SubMenuName" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="MenuLogo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="url" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="FreeText1" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="FreeText2" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="FreeText3" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TMDate" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityContainer Name="projectdbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="CourseCurriculums" EntityType="Self.CourseCurriculum" />
+          <EntitySet Name="CourseCurriculumDets" EntityType="Self.CourseCurriculumDet" />
+          <EntitySet Name="CourseDetails" EntityType="Self.CourseDetail" />
+          <EntitySet Name="Courses" EntityType="Self.Cours" />
+          <EntitySet Name="Menus" EntityType="Self.Menu" />
+          <EntitySet Name="SubCategories" EntityType="Self.SubCategory" />
+          <EntitySet Name="SubMenus" EntityType="Self.SubMenu" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="projectdbModelStoreContainer" CdmEntityContainer="projectdbEntities">
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="projectdbModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="FreeText1" ColumnName="FreeText1" />
+                <ScalarProperty Name="FreeText2" ColumnName="FreeText2" />
+                <ScalarProperty Name="FreeText3" ColumnName="FreeText3" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="TMDate" ColumnName="TMDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CourseCurriculums">
+            <EntityTypeMapping TypeName="projectdbModel.CourseCurriculum">
+              <MappingFragment StoreEntitySet="CourseCurriculum">
+                <ScalarProperty Name="CourseCurrID" ColumnName="CourseCurrID" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="ChapterName" ColumnName="ChapterName" />
+                <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+                <ScalarProperty Name="FreeText1" ColumnName="FreeText1" />
+                <ScalarProperty Name="FreeText2" ColumnName="FreeText2" />
+                <ScalarProperty Name="FreeText3" ColumnName="FreeText3" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="TMDate" ColumnName="TMDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CourseCurriculumDets">
+            <EntityTypeMapping TypeName="projectdbModel.CourseCurriculumDet">
+              <MappingFragment StoreEntitySet="CourseCurriculumDet">
+                <ScalarProperty Name="CourseCurrDetID" ColumnName="CourseCurrDetID" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="CourseCurrID" ColumnName="CourseCurrID" />
+                <ScalarProperty Name="TopicName" ColumnName="TopicName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="FreeText1" ColumnName="FreeText1" />
+                <ScalarProperty Name="FreeText2" ColumnName="FreeText2" />
+                <ScalarProperty Name="FreeText3" ColumnName="FreeText3" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="TMDate" ColumnName="TMDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CourseDetails">
+            <EntityTypeMapping TypeName="projectdbModel.CourseDetail">
+              <MappingFragment StoreEntitySet="CourseDetails">
+                <ScalarProperty Name="CourseDetID" ColumnName="CourseDetID" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+                <ScalarProperty Name="FreeText1" ColumnName="FreeText1" />
+                <ScalarProperty Name="FreeText2" ColumnName="FreeText2" />
+                <ScalarProperty Name="FreeText3" ColumnName="FreeText3" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="TMDate" ColumnName="TMDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Courses">
+            <EntityTypeMapping TypeName="projectdbModel.Cours">
+              <MappingFragment StoreEntitySet="Courses">
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="FreeText1" ColumnName="FreeText1" />
+                <ScalarProperty Name="FreeText2" ColumnName="FreeText2" />
+                <ScalarProperty Name="FreeText3" ColumnName="FreeText3" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="TMDate" ColumnName="TMDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Menus">
+            <EntityTypeMapping TypeName="projectdbModel.Menu">
+              <MappingFragment StoreEntitySet="Menu">
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+                <ScalarProperty Name="MenuLogo" ColumnName="MenuLogo" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="FreeText1" ColumnName="FreeText1" />
+                <ScalarProperty Name="FreeText2" ColumnName="FreeText2" />
+                <ScalarProperty Name="FreeText3" ColumnName="FreeText3" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="TMDate" ColumnName="TMDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubCategories">
+            <EntityTypeMapping TypeName="projectdbModel.SubCategory">
+              <MappingFragment StoreEntitySet="SubCategory">
+                <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="SubCategoryName" ColumnName="SubCategoryName" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="FreeText1" ColumnName="FreeText1" />
+                <ScalarProperty Name="FreeText2" ColumnName="FreeText2" />
+                <ScalarProperty Name="FreeText3" ColumnName="FreeText3" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="TMDate" ColumnName="TMDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubMenus">
+            <EntityTypeMapping TypeName="projectdbModel.SubMenu">
+              <MappingFragment StoreEntitySet="SubMenu">
+                <ScalarProperty Name="SubMenuID" ColumnName="SubMenuID" />
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+                <ScalarProperty Name="SubMenuName" ColumnName="SubMenuName" />
+                <ScalarProperty Name="MenuLogo" ColumnName="MenuLogo" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="FreeText1" ColumnName="FreeText1" />
+                <ScalarProperty Name="FreeText2" ColumnName="FreeText2" />
+                <ScalarProperty Name="FreeText3" ColumnName="FreeText3" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="TMDate" ColumnName="TMDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
